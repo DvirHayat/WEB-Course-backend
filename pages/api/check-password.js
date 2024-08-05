@@ -1,7 +1,12 @@
 import { getUserById } from '../../lib/db'; // Replace with your actual DB logic
 import connectToDatabase from '../../lib/mongodb';
 
+  
 export default async function handler(req, res) {
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Allow all origins
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE'); // Allowed methods
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type'); // Allowed headers
+
   console.log('Connecting to the database...');
   await connectToDatabase();
   console.log('Connected to the database');
