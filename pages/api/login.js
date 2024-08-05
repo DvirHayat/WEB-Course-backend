@@ -1,10 +1,10 @@
-import { getUserById } from '../../lib/db'; // Replace with your actual DB logic
+import {getConnections, getUserById } from '../../lib/db'; // Replace with your actual DB logic
 import connectToDatabase from '../../lib/mongodb';
 
   
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*'); // Allow all origins
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE'); // Allowed methods
+  res.setHeader('Access-Control-Allow-Methods', 'GET'); // Allowed methods - , POST, PUT, DELETE
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type'); // Allowed headers
 
   console.log('Connecting to the database...');
@@ -41,7 +41,8 @@ export default async function handler(req, res) {
 
     if (isPasswordValid) {
       console.log('Password is valid');
-      return res.status(200).json({ data: user });
+      const connections = await getConnections(user.id_num,user.workplace,user.country, user.hobby);
+      return res.status(200).json({ user:user,connections: connections });
     } else {
       console.log('Incorrect password');
       return res.status(401).json({ message: 'Incorrect password' });
