@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     res.setHeader('Access-Control-Allow-Headers','Content-Type, Authorization'); // Allowed header
 
     await connectToDatabase();
-    if (req.method !== 'POST') {
+    if (req.method !== 'POST' && req.method !== 'OPTIONS' ){
       console.log('Method not allowed');
       return res.status(405).json({ message: 'Method not allowed' });
     }
