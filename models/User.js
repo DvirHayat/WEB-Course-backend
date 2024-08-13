@@ -45,8 +45,12 @@ const UserSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: [true, 'Please provide a hobby for this user.'],
+    required: [true, 'Please provide a password for this user.'],
   },
+  role: {
+    type: String,
+    required: [true, 'Please provide a role for this user.'],
+  }
 
 });
 
