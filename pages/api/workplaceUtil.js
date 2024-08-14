@@ -60,13 +60,13 @@ async function handleGetRequest(req, res) {
  */
 async function handlePutRequest(req, res) {
   try {
-    const { name } = req.body;
+    const { workplace } = req.body;
 
-    if (!name) {
+    if (!workplace) {
       return res.status(400).json({ message: 'Workplace name is required' });
     }
 
-    const result = await newWorkplace(name);
+    const result = await newWorkplace(workplace);
 
     res.status(201).json(result);
   } catch (error) {
@@ -82,13 +82,13 @@ async function handlePutRequest(req, res) {
  */
 async function handleDeleteRequest(req, res) {
   try {
-    const { name } = req.body;
+    const { workplace } = req.body;
 
-    if (!name) {
+    if (!workplace) {
       return res.status(400).json({ message: 'Workplace name is required' });
     }
 
-    const result = await deleteWorkplaceByName(name);
+    const result = await deleteWorkplaceByName(workplace);
 
     if (result.deletedCount === 0) {
       return res.status(404).json({ message: 'Workplace not found' });
