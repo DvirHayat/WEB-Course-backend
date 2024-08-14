@@ -27,10 +27,6 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please provide a country for this user.'],
   },
-  city: {
-    type: String,
-    required: [true, 'Please provide a city for this user.'],
-  },
   gender: {
     type: String,
     required: [true, 'Please provide a gender for this user.'],

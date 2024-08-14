@@ -33,7 +33,7 @@ export default async function handler(req, res) {
 async function handlePostRequest(req, res) {
   const { 
     newFirstName, newLastName, newEmail, newIdNum, 
-    newCountry, newCity, newWorkplace, newHobby, 
+    newCountry, newWorkplace, newHobby, 
     newGender, newPassword, newBirthdate 
   } = req.body;
 
@@ -50,7 +50,7 @@ async function handlePostRequest(req, res) {
 
   await newUser(
     newFirstName, newLastName, newEmail, newIdNum, 
-    newCountry, newCity, newWorkplace, newHobby, 
+    newCountry, newWorkplace, newHobby, 
     newGender, newPassword, newBirthdate
   );
   

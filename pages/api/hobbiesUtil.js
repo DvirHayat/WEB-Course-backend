@@ -59,15 +59,15 @@ async function handleGetRequest(req, res) {
  */
 async function handlePutRequest(req, res) {
   try {
-    const { name } = req.body;
+    const { activity } = req.body;
 
-    if (!name) {
+    if (!activity) {
       return res.status(400).json({ message: 'Hobby name is required' });
     }
 
-    const result = await newHobby(name);
+    const result = await newHobby(activity);
 
-    res.status(201).json(result);
+    res.status(200).json(result);
   } catch (error) {
     console.error('Error adding hobby:', error);
     res.status(500).json({ message: 'Failed to add hobby', error });
