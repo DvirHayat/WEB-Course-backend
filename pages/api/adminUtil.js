@@ -94,7 +94,7 @@ async function handleGetRequest(req, res) {
 async function handlePatchRequest(req, res) {
   try {
     // Fetch all users from the database
-    const users = await deleteAllUsersAllUsers();
+    const users = await deleteAllUsers();
     
     // Send the users data as a JSON response
     res.status(200).json({message: 'Deleted all users'});
