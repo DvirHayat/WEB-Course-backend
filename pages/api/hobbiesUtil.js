@@ -81,13 +81,13 @@ async function handlePutRequest(req, res) {
  */
 async function handleDeleteRequest(req, res) {
   try {
-    const { name } = req.body;
+    const { activity } = req.body;
 
-    if (!name) {
+    if (!activity) {
       return res.status(400).json({ message: 'Hobby name is required' });
     }
 
-    const result = await deleteHobbyByName(name);
+    const result = await deleteHobbyByName(activity);
 
     if (result.deletedCount === 0) {
       return res.status(404).json({ message: 'Hobby not found' });
