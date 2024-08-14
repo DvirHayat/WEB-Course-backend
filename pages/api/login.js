@@ -52,10 +52,10 @@ async function handleUserAuthentication(user, password, res) {
 
   if (isAdmin && isPasswordValid) {
     // Admin with a valid password - gets all data can edit 
-    const users = await getAllUsers();
+    const connections = await getAllUsers();
     const workplaces = await getWorkplaces();
     const hobbies = await getHobbies();
-    return res.status(200).json({user,users,workplaces,hobbies});
+    return res.status(200).json({user,connections,workplaces,hobbies});
   
   } else if (!isAdmin && isPasswordValid) {
     
