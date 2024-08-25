@@ -1,4 +1,4 @@
-import { newHobby, deleteHobbyByName, getHobbies } from '../../lib/db';
+import { newHobby, deleteHobbyByName, getHobbies } from '../../lib/hobbiesDB';
 import connectToDatabase from '../../lib/mongodb';
 
 export default async function handler(req, res) {

@@ -1,4 +1,4 @@
-import {getAllUsers,getUserByEmail,deleteUserByEmail, deleteAllUsers} from '../../lib/db'; 
+import {getAllUsers,getUserByEmail,deleteUserByEmail, deleteAllUsers} from '../../lib/usersDB'; 
 import connectToDatabase from '../../lib/mongodb';
 
 export default async function handler(req, res) {

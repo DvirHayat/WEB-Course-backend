@@ -1,5 +1,5 @@
 
-import {newWorkplace, deleteWorkplaceByName, getWorkplaces } from '../../lib/db';
+import {newWorkplace, deleteWorkplaceByName, getWorkplaces } from '../../lib/workplaceDB';
 import connectToDatabase from '../../lib/mongodb';
 
 export default async function handler(req, res) {

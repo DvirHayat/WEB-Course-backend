@@ -1,4 +1,4 @@
-import { getAllUsers, getConnections, getHobbies, getUserById, getWorkplaces } from '../../lib/db'; // Replace with your actual DB logic
+import {getUserById } from '../../lib/usersDB';
 import connectToDatabase from '../../lib/mongodb';
 
 
@@ -47,19 +47,11 @@ function isGetMethod(req) {
 
 // Function to handle user authentication and role verification
 async function handleUserAuthentication(user, password, res) {
-  const isAdmin = user.role === 'admin';
   const isPasswordValid = password === user.password;
-
-  if (isAdmin && isPasswordValid) {
+  if ( isPasswordValid) {
     // Admin with a valid password - gets all data can edit 
-    const connections = await getAllUsers();
-    return res.status(200).json({user,connections});
+    return res.status(200).json({user});
   
-  } else if (!isAdmin && isPasswordValid) {
-    
-    // Non-admin user with a valid password
-    const connections = await getConnections(user.id_num, user.workplace, user.country, user.hobby);
-    return res.status(200).json({ user, connections });
   } else {
     // Invalid password
     return res.status(401).json({ message: 'Incorrect password' });

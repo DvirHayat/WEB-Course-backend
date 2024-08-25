@@ -1,4 +1,6 @@
-import { getUserById,newUser,getUserByEmail,getHobbies,getWorkplaces} from '../../lib/db'; 
+import { getUserById,newUser,getUserByEmail} from '../../lib/usersDB';
+import {getHobbies} from '../../lib/hobbiesDB'
+import {getWorkplaces} from   '../../lib/workplaceDB' 
 import connectToDatabase from '../../lib/mongodb';
 
 export default async function handler(req, res) {
