@@ -1,4 +1,4 @@
-import {getAllUsers,getUserByEmail,deleteUserByEmail, deleteAllUsers} from '../../lib/usersDB'; 
+import {getAllUsers,getUserByEmail,deleteUserByEmail} from '../../lib/usersDB'; 
 import connectToDatabase from '../../lib/mongodb';
 
 export default async function handler(req, res) {
@@ -17,9 +17,6 @@ export default async function handler(req, res) {
       case 'DELETE':
         await handleDeleteRequest(req, res);
         break;
-      case 'PATCH':
-        await handlePatchRequest(req, res);
-        break;  
       //get all users - also has in admin login
       case 'GET':
           await handleGetRequest(req, res);
@@ -86,28 +83,10 @@ async function handleGetRequest(req, res) {
   }
 }
 
-/**
- * For debugging and db user update
- * @param {*} req 
- * @param {*} res 
- */
-async function handlePatchRequest(req, res) {
-  try {
-    // Fetch all users from the database
-    const users = await deleteAllUsers();
-    
-    // Send the users data as a JSON response
-    res.status(200).json({message: 'Deleted all users'});
-  } catch (error) {
-    console.error('Error fetching users:', error);
-    res.status(500).json({ message: 'Failed to fetch users', error });
-  }
-}
-
   // Function to set CORS headers
 function setCorsHeaders(res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'DELETE,PATCH,GET,OPTIONS');
+    res.setHeader('Access-Control-Allow-Methods', 'DELETE,GET,OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   }
 
