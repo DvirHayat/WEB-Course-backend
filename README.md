@@ -1,6 +1,6 @@
 # Web-Course-backend
 
-This project is a backend service for managing users in [Social Network](https://social-network-bfr9.vercel.app/) - check it out on [Github](https://github.com/RafaelAbb/SocialNetwork), built with **Next.js** and **MongoDB**. It provides various endpoints for user authentication, registration, and administration. The project also uses **Mongoose** for database interactions.
+This project is a backend service for managing users in [Social Network](https://social-network-bfr9.vercel.app/) - check it out on [Github](https://github.com/RafaelAbb/SocialNetwork).This project built with **Next.js** and **MongoDB**. It provides various endpoints for user authentication, registration, and administration. The project also uses **Mongoose** for database interactions.
 
 ### Clone the repository:
 ```code
